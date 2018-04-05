@@ -1,0 +1,39 @@
+<?php
+$this->title = "Edit categoriy";
+$this->headTitle($this->title);
+?>
+
+<html>
+<body>
+<head>
+<?php echo $this->headScript()->prependFile($this->baseUrl().'/js/categoriy.js'); ?>
+</head>
+  
+
+
+<?php
+	$categoriyid=isset($_GET['id']) && is_numeric($_GET['id']) ? intval($_GET['id']) : 0 ;
+
+      $Categories = new Application_Model_DbTable_Categories();
+    $categories = $Categories->fetchAll($Categories->select()->where('id = ?',$categoriyid));
+	foreach( $categories as $categoriy)
+								{
+?>
+
+<!-- <form class="group formm" id="categories1" method="POST" action="<?php echo $this->url(array('action'=>'edit')); ?>"> -->
+	
+
+	<input type="hidden" name="id" id="id"  value="<?=$categoriy['id']?>"/>
+    
+	<label>Name</label>
+    <input class="form-control noPlaceholder" type="text" name="name"  value="<?=$categoriy['name']?>" required  placeholder="name"  /> 
+    
+	<!-- <input class="form-control btn btn-success editcategoriy1"   type="submit" value='edit' /> -->
+<!-- </form> -->
+
+<?php
+}
+?>
+
+</body>
+</html>

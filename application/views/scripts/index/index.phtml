@@ -1,0 +1,38 @@
+<?php
+$this->title = "Home";
+$this->headTitle($this->title);
+?>
+
+<html>
+<body>
+<head>
+<?php echo $this->headLink()->prependStylesheet($this->baseUrl().'/css/site.css'); ?> 
+
+<link rel="stylesheet" href="http://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"/>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>	
+<script src="http://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<?php echo $this->headScript()->prependFile($this->baseUrl().'/js/index.js'); ?>
+        
+</head>
+
+
+	 <div class="contaner">
+		<div class="table-responsive">
+ <table id="indextable" class="main-table mange-mempers text-center table table-bordered table1" cellspacing="0" width="100%">
+
+
+	<thead>
+      <tr>
+
+            <td>name</td>
+			<td>author</td>
+			<td>phone</td>
+            
+      </tr>
+ </thead>
+
+</table>	

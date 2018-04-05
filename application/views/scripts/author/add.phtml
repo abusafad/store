@@ -1,0 +1,27 @@
+<?php
+$this->title = "Add new author";
+$this->headTitle($this->title);
+?>
+<html>
+<body>
+<head>
+<?php echo $this->headScript()->prependFile($this->baseUrl().'/js/author.js'); ?>
+</head>
+  
+
+	<input type="hidden" name="id" id="id"  value=""/>
+
+    <label>Name</label>
+    <input class="form-control" type="text"  name="name"     placeholder="name"    required/>
+    
+    <label>Email</label>
+    <input class="form-control" type="email" name="email"   placeholder="email"    required/>
+        
+    <label>Phone</label>
+    <input class="form-control" type="text"  name="phone"    placeholder="phone"   required/>
+	    
+    <label>Address</label>
+    <input class="form-control" type="text"  name="address"  placeholder="address" required/>
+
+</body>
+</html>

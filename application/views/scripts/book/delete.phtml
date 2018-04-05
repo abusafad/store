@@ -1,0 +1,12 @@
+<?php
+$this->title = "Delete book";
+$this->headTitle($this->title);
+?>
+
+<p>Are you sure that you want to delete
+'<?php echo $this->escape($this->book['name']); ?>' ?
+</p>
+<div>
+<input type="hidden" name="id" value="<?php echo $this->book['id']; ?>" />
+</div>
+

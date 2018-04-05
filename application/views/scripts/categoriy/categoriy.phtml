@@ -1,0 +1,131 @@
+<?php
+$this->title = "categoriy";
+$this->headTitle($this->title);
+?>
+
+
+<html>
+<body>
+<head>
+<?php echo $this->headLink()->prependStylesheet($this->baseUrl().'/css/site.css'); ?> 
+
+<link rel="stylesheet" href="http://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"/>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>	
+<script src="http://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="http://malsup.github.com/jquery.form.js"></script>
+<?php echo $this->headScript()->prependFile($this->baseUrl().'/js/categoriy.js'); ?>
+        
+</head>
+
+	 <div class="contaner">
+		<div class="table-responsive">
+<table id="categoriytable" class="main-table mange-mempers text-center table table-bordered table1" cellspacing="0" width="100%">
+
+ <thead>
+      <tr>
+
+        <td>id</td>
+				<td>Name</td>
+			  <td>Control</td>
+            
+      </tr>
+ </thead>
+
+</table>	
+
+<button type="button" class="btn btn-info btn-lg addcategoriy" data-toggle="modal" data-target="#myModal7">
+add categoriy
+</button>
+			
+
+			
+ <!-- Modal -->
+<div class="modal fade" id="myModal7" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+<form class="group formm" id="categories" method="POST" action="<?php echo $this->url(array('action' => 'add')); ?>">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">add categoriy</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary sendcategoriy">add</button>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>
+
+			
+			
+<!-- start edit form modail -->
+			
+<!-- Modal -->
+<div class="modal fade" id="myModal8" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+<form class="group formm" id="categories1" method="POST" action="<?php echo $this->url(array('action'=>'edit')); ?>">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">edit categoriy</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary editcategoriy1">update</button>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>
+
+			
+			<!-- start delete form modail -->
+
+
+
+      <div class="modal fade" id="myModal9" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+<form id="deleteformCat" action="<?php echo $this->url(array('action'=>'delete')); ?>" method="post">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">delete categoriy</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary deletesubmitCat">delete</button>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>
+
+			
+		
+
+
+
+
+
+
+
+
+
+  

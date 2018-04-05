@@ -1,0 +1,10 @@
+<?php
+$this->title = "Delete categoriy";
+$this->headTitle($this->title);
+?>
+<p>Are you sure that you want to delete
+'<?php echo $this->escape($this->categoriy['name']); ?>' ?
+</p>
+<div>
+<input type="hidden" name="id" value="<?php echo $this->categoriy['id']; ?>" />
+</div>

@@ -1,0 +1,136 @@
+<?php
+$this->title = "book";
+$this->headTitle($this->title);
+?>
+
+<html>
+<body>
+<head>
+<?php echo $this->headLink()->prependStylesheet($this->baseUrl().'/css/site.css'); ?> 
+
+<link rel="stylesheet" href="http://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"/>
+<link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css">
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>	
+<script src="http://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="http://malsup.github.com/jquery.form.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.js"> </script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+
+<?php echo $this->headScript()->prependFile($this->baseUrl().'/js/book.js'); ?>
+        
+
+</head>
+
+	 <div class="contaner">
+		<div class="table-responsive">
+ <table id="booktable" class="main-table mange-mempers text-center table table-bordered table" cellspacing="0" width="100%">
+                <thead>
+          <tr>
+
+				<td>Name</td>
+				<td>author</td>
+			    <td>descrabtion</td>
+          <td>price in JOD</td>
+          <td>price in USD</td>
+          <td>price in ERU</td>
+          <td>start Date</td>
+          <td>End Date</td>
+          <td>categories</td>
+          <td>offer</td>
+			    <td>Control</td>
+            </tr>
+				 </thead>
+
+		 </table>
+
+
+
+
+
+
+
+<button type="button" class="btn btn-info btn-lg addbook" data-toggle="modal" data-target="#myModal1">
+add book
+</button>
+
+
+
+ <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+<form class = "group"method = "POST"id = "book"action = "<?php echo $this->url(array('action' => 'add')); ?>" >  
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">add book</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+     
+       </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary sendbook">add</button>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>
+
+
+<!-- start edit form modail -->
+
+			<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+<form class ="group" method="POST"  name="bookformedit22"  id="editbookform" action="<?php echo $this->url(array('action' => 'edit')); ?>" >  
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">edit book</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary sendeditbook">edit</button>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>
+
+
+			<!-- start edit form modail -->
+
+		<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+<form id="deleteform11" action="<?php echo $this->url(array('action' => 'delete')); ?>" method="post">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">delete book</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary deletesubmit">delete</button>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

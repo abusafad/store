@@ -1,0 +1,44 @@
+<?php
+$this->title = "Edit book";
+$this->headTitle($this->title);
+?>
+
+<html>
+<body>
+<head>
+<?php echo $this->headScript()->prependFile($this->baseUrl().'/js/author.js'); ?>
+</head>
+
+<?php
+$authorid = isset($_GET['id']) && is_numeric($_GET['id']) ? intval($_GET['id']) : 0;
+
+$author = new Application_Model_DbTable_Authors();
+$authors = $author->fetchAll($author->select()->where('id = ?', $authorid));
+foreach ($authors as $author) {
+    ?>
+
+
+
+    <input type="hidden" name="id" id="idauthor"  value="<?=$author['id']?>"/>
+
+    <label>Name</label>
+    <input class="form-control" type="text" id="nameauthor"  name="name" value="<?=$author['name']?>"   placeholder="name" required/>
+    
+    <label>Email</label>
+    <input class="form-control" type="email" id="emailauthor"  name="email" value="<?=$author['email']?>" placeholder="email" required/>
+    
+    
+    <label>Phone</label>
+    <input class="form-control" type="text" id="phoneauthor"  name="phone" value="<?=$author['phone']?>"  placeholder="phone" required/>
+
+    <label>Address</label>
+    <input class="form-control" type="text" id="addressauthor"  name="address" value="<?=$author['address']?>"  placeholder="address" required/>
+
+
+
+<?php
+}
+?>
+
+</body>
+</html>

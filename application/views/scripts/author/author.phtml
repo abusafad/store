@@ -1,0 +1,123 @@
+<?php
+$this->title = "author";
+$this->headTitle($this->title);
+?>
+
+<html>
+<body>
+<head>
+<?php echo $this->headLink()->prependStylesheet($this->baseUrl().'/css/site.css'); ?> 
+
+<link rel="stylesheet" href="http://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"/>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>	
+<script src="http://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="http://malsup.github.com/jquery.form.js"></script>
+<?php echo $this->headScript()->prependFile($this->baseUrl().'/js/author.js'); ?>
+        
+</head>
+
+	 <div class="contaner">
+		<div class="table-responsive">
+ <table id="authortable" class="main-table mange-mempers text-center table table-bordered table1" cellspacing="0" width="100%">
+	  <thead>
+          <tr>
+
+				<td>Name</td>
+				<td>email</td>
+			    <td>phone</td>
+			  	<td>address</td>
+			    <td>Control</td>
+            </tr>
+				 </thead>
+
+		 </table>
+
+
+
+			<button type="button" class="btn btn-info btn-lg addauthor" data-toggle="modal" data-target="#myModal4">
+add author
+</button>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+<form class="group" method="POST" id="author" action="<?php echo $this->url(array('action' => 'add')); ?>">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">add author</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary sendauthor">add</button>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>
+
+
+
+
+ 
+
+<!-- start edit form modail -->
+
+<!-- Modal -->
+<div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+<form class="group formeditaa" id="editauthorform" method="POST" action="<?php echo $this->url(array('action' => 'edit')); ?>">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">edit author</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary editauthor1">update</button>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>
+
+
+
+
+
+
+			<!-- start delete form modail -->
+
+		<div class="modal fade" id="myModal6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+<form id='deleteform1' action="<?php echo $this->url(array('action' => 'delete')); ?>" method="post">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">delete author</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary deletesubmit1">delete</button>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>

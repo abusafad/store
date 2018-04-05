@@ -1,0 +1,19 @@
+<?php
+$this->title = "Add new categoriy";
+$this->headTitle($this->title);
+?>
+<html>
+<body>
+<head>
+<?php echo $this->headScript()->prependFile($this->baseUrl().'/js/categoriy.js'); ?>
+</head>
+  
+
+
+	<input type="hidden" name="id" id="id"  value=""/>
+    
+    <label>Name</label>
+    <input class="form-control" type="text" name="name"  placeholder="name" required/>
+    
+</body>
+</html>

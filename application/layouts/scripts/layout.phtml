@@ -1,0 +1,35 @@
+<?php
+$this->headMeta()->appendHttpEquiv('Content-Type', 'text/html;charset=utf-8');
+$this->headTitle()->setSeparator(' - ');
+$this->headTitle('project15');
+echo $this->doctype(); ?>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<?php echo $this->headMeta(); ?>
+<?php echo $this->headTitle(); ?>
+   
+</head>
+<body>	
+	
+<div class="hed">
+<ul>
+    <li><a href="/index/index">codeobia</a></li>
+    <li><a href="/book/book">books</a></li>
+    <li><a href="/author/author">author</a></li>
+    <li><a href="/categoriy/categoriy">categoriy</a></li>
+</ul>
+    
+</div>	
+	
+<div id="content">
+<h1><?php echo $this->escape($this->title); ?></h1>
+<?php echo $this->layout()->content; ?>
+</div>
+	
+	
+	
+ 
+	
+	
+</body>
+</html>
