@@ -1,0 +1,103 @@
+body,
+html {
+    margin: 0 5px;
+    font-family: Verdana, sans-serif;
+}
+
+h1 {
+    font-size: 1.4em;
+    color: #008000;
+}
+
+a {
+    color: #008000;
+}
+
+
+/* Table */
+
+th {
+    text-align: left;
+}
+
+td,
+th {
+    padding-right: 5px;
+}
+
+
+/* style form */
+
+form dt {
+    width: 100px;
+    display: block;
+    float: left;
+    clear: left;
+}
+
+form dd {
+    margin-left: 0;
+    float: left;
+}
+
+form #submitbutton {
+    margin-left: 100px;
+}
+
+.hed {
+    background: black;
+    margin-right: -10px;
+    margin-left: -10px;
+}
+
+.hed ul {
+    text-decoration: none;
+    display: inline-flex;
+    margin-top: 17px;
+}
+
+.hed ul li {
+    text-decoration: none;
+    display: inline;
+    margin-right: 27px;
+    font-size: large;
+    font-family: monospace;
+}
+
+.hed ul li a {
+    color: aqua;
+    text-decoration: none;
+}
+
+.hed ul li a:hover {
+    color: crimson;
+}
+
+h1 {
+    color: #d9534f;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.editr {
+    display: none;
+}
+
+.form-control {
+    margin-bottom: 10px;
+}
+
+.js-example-basic-multiple {
+    width: 297px;
+}
+
+.catNameSpan {
+    background-color: #e4e4e4;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    cursor: default;
+    float: left;
+    margin-right: 5px;
+    margin-top: 5px;
+    padding: 0 5px;
+}
