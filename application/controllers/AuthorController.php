@@ -17,9 +17,9 @@ $this -> _helper -> layout() -> disableLayout();
 if ($this -> getRequest() -> isPost()) {
 $formData = $this -> getRequest() -> getPost(); 
 
-$name    = $this -> getRequest() -> getPost('name'); 
-$email   = $this -> getRequest() -> getPost('email'); 
-$phone   = $this -> getRequest() -> getPost('phone'); 
+$name = $this -> getRequest() -> getPost('name'); 
+$email = $this -> getRequest() -> getPost('email'); 
+$phone = $this -> getRequest() -> getPost('phone'); 
 $address = $this -> getRequest() -> getPost('address'); 
 
 $authors = new Application_Model_DbTable_Authors(); 
@@ -34,10 +34,10 @@ $this -> _helper -> layout() -> disableLayout();
 if ($this -> getRequest() -> isPost()) {
 $formData = $this -> getRequest() -> getPost(); 
 
-$id      = (int)$this -> getRequest() -> getPost('id'); 
-$name    = $this -> getRequest() -> getPost('name'); 
-$email   = $this -> getRequest() -> getPost('email'); 
-$phone   = $this -> getRequest() -> getPost('phone'); 
+$id = (int)$this -> getRequest() -> getPost('id'); 
+$name = $this -> getRequest() -> getPost('name'); 
+$email = $this -> getRequest() -> getPost('email'); 
+$phone = $this -> getRequest() -> getPost('phone'); 
 $address = $this -> getRequest() -> getPost('address'); 
 
 $authors = new Application_Model_DbTable_Authors(); 
@@ -52,7 +52,7 @@ $this -> _helper -> layout() -> disableLayout();
 if ($this -> getRequest() -> isPost()) {
 
 $del = $this -> getRequest() -> getPost('del'); 
-$id  = $this -> getRequest() -> getPost('id');
+$id = $this -> getRequest() -> getPost('id'); 
 
 $authors = new Application_Model_DbTable_Authors(); 
 $authors -> deleteAuthor($id); 
@@ -73,39 +73,32 @@ $author = new Application_Model_DbTable_Authors();
 
 
 $colums = array(
-    0 => 'name',
-    1 => 'email',
-  
+0 => 'name', 
+1 => 'email', ); 
 
-);
+$query = $author -> select() -> where('name LIKE ?', $this -> getRequest() -> get('search')['value'] . '%'); 
 
-$query = $author
-    ->select()
-    ->where('name LIKE ?',$this->getRequest()->get('search')['value'] . '%');
+if ( ! empty($this -> getRequest() -> get('search')['value'])) {
 
-if (!empty($this->getRequest()->get('search')['value'])) {
-    //$queryTot = $index->fetchAll($where = "name LIKE  '" . $_REQUEST['search']['value'] . "%'" );
+$row = $author -> fetchAll($query); 
 
-    $row = $author->fetchAll($query);
+$totalRecords = count($row); 
+}else {
 
-    $totalRecords = count($row);
-} else {
+$row = $author -> fetchAll($where = null, $order = $colums[$this -> getRequest() -> get('order')[0]['column']] . " " . $this -> getRequest() -> get('order')[0]['dir'], $count = $this -> getRequest() -> get('length'), $offset = $this -> getRequest() -> get('start')); 
+$row2 = $author -> fetchAll($where = null); 
 
-    $row = $author->fetchAll($where = null, $order = $colums[$this->getRequest()->get('order')[0]['column']] . " " . $this->getRequest()->get('order')[0]['dir'], $count = $this->getRequest()->get('length'), $offset = $this->getRequest()->get('start'));
-    $row2 = $author->fetchAll($where = null);
-
-    $totalRecords = count($row2);
-    $totalRecords;
+$totalRecords = count($row2); 
+$totalRecords; 
 }
 
 $json_data = array(
-    "draw" => intval($this->getRequest()->get('draw')),
-    "recordsTotal" => intval($totalRecords),
-    "recordsFiltered" => intval($totalRecords),
-    "data" => $row->toArray(),
-);
+"draw" => intval($this -> getRequest() -> get('draw')), 
+"recordsTotal" => intval($totalRecords), 
+"recordsFiltered" => intval($totalRecords), 
+"data" => $row -> toArray(), ); 
 
-echo json_encode($json_data);
+echo json_encode($json_data); 
 
 }
 

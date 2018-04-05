@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
     $("#authortable").DataTable({
         ajax: "/author/authorjson",
         retrieve: true,
@@ -78,9 +77,4 @@ $(document).ready(function() {
             }
         });
     });
-
-
-
-
-
 });

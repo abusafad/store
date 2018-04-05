@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
     $("#categoriytable").DataTable({
         ajax: "/categoriy/categoryjson",
         retrieve: true,
@@ -72,7 +71,4 @@ $(document).ready(function() {
             }
         });
     });
-
-
-
 });

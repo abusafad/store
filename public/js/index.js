@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
     $("#indextable").DataTable({
         ajax: "/index/indexjson",
         retrieve: true,
@@ -17,5 +16,4 @@ $(document).ready(function() {
             }
         ]
     });
-
 });

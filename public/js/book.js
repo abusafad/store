@@ -1,13 +1,7 @@
 $(document).ready(function() {
-
-
     $("body").on("click", ".addbook", function() {
         $(".modal-body").load("/book/add");
-
     });
-
-
-
 
     $("body").on("click", ".addbook", function() {
         setInterval(function() {
@@ -46,7 +40,6 @@ $(document).ready(function() {
         }, 100);
     });
 
-
     $("body").on("click", ".editbookbutton", function() {
         setInterval(function() {
             $("#editbookform").validate({
@@ -83,7 +76,6 @@ $(document).ready(function() {
         var bookid = $(this).attr("bookid");
         $(".modal-body").load("/book/delete/id/" + bookid);
     });
-
 
     $("body").on("click", ".sendbook", function() {
         $("#book").ajaxForm({
@@ -126,8 +118,7 @@ $(document).ready(function() {
         bProcessing: true,
         serverSide: true,
         columns: [{
-                data: "bookname",
-
+                data: "bookname"
             },
             {
                 data: "name"
@@ -156,11 +147,14 @@ $(document).ready(function() {
                     var nameOfCat = rowName.split(",");
 
                     for (var i = 0; i < nameOfCat.length; i++) {
-
-                        return "<span class='catNameSpan'>" + nameOfCat.join(" </span> " + "<span class='catNameSpan'>");
+                        return (
+                            "<span class='catNameSpan'>" +
+                            nameOfCat.join(" </span> " + "<span class='catNameSpan'>")
+                        );
                     }
                 }
-            }, {
+            },
+            {
                 render: function(data, type, row) {
                     var datenow = new Date().toLocaleString().split(",")[0];
                     var datenow2 = Date.parse(datenow);
@@ -173,7 +167,8 @@ $(document).ready(function() {
                         return "no";
                     }
                 }
-            }, {
+            },
+            {
                 render: function(data, type, row) {
                     return (
                         "<button type='button' bookid='" +
@@ -186,8 +181,6 @@ $(document).ready(function() {
             }
         ]
     });
-
-
 
     $(".js-example-basic-multiple").select2();
 
@@ -222,5 +215,4 @@ $(document).ready(function() {
             $(".start").datepicker("option", "maxDate", selected);
         }
     });
-
 });
