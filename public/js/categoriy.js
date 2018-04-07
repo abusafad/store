@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $("#categoriytable").DataTable({
+    $("#categoriy_table").DataTable({
         ajax: "/categoriy/categoryjson",
         retrieve: true,
         paging: true,
@@ -16,56 +16,56 @@ $(document).ready(function() {
                     return (
                         "<button type='button' categoriyid='" +
                         row.id +
-                        "'  class='btn btn-success btn-md editcategoriy' data-toggle='modal'  data-target='#myModal8'>  edit </button>                    <button type='button' categoriyid='" +
+                        "'  class='btn btn-success btn-md edit_categoriy' data-toggle='modal'  data-target='#myModal8'>  edit </button>                    <button type='button' categoriyid='" +
                         row.id +
-                        "' id='deletecategoriy' class='btn btn-danger btn-md deletecategoriy' data-toggle='modal'  data-target='#myModal9'>  delete </button>"
+                        "' id='deletecategoriy' class='btn btn-danger btn-md delete_categoriy' data-toggle='modal'  data-target='#myModal9'>  delete </button>"
                     );
                 }
             }
         ]
     });
 
-    $("body").on("click", ".addcategoriy", function() {
+    $("body").on("click", ".add_categoriy", function() {
         $(".modal-body").load("/categoriy/add");
     });
 
-    $("body").on("click", ".editcategoriy", function() {
+    $("body").on("click", ".edit_categoriy", function() {
         var categoriyid = $(this).attr("categoriyid");
         $(".modal-body").load("/categoriy/edit?id=" + categoriyid);
     });
 
-    $("body").on("click", ".deletecategoriy", function() {
+    $("body").on("click", ".delete_categoriy", function() {
         var categoriyid = $(this).attr("categoriyid");
         $(".modal-body").load("/categoriy/delete/id/" + categoriyid);
     });
 
-    $("body").on("click", ".sendcategoriy", function() {
-        $("#categories").ajaxForm({
+    $("body").on("click", ".submit_Add_Categoriy", function() {
+        $("#add_categories_Form").ajaxForm({
             success: function() {
                 $("#myModal7").modal("hide");
-                $("#categoriytable")
+                $("#categoriy_table")
                     .DataTable()
                     .ajax.reload();
             }
         });
     });
 
-    $("body").on("click", ".editcategoriy1", function() {
-        $("#categories1").ajaxForm({
+    $("body").on("click", ".submit_Edit_Categoriy", function() {
+        $("#edit_categories_Form").ajaxForm({
             success: function() {
                 $("#myModal8").modal("hide");
-                $("#categoriytable")
+                $("#categoriy_table")
                     .DataTable()
                     .ajax.reload();
             }
         });
     });
 
-    $("body").on("click", ".deletesubmitCat", function() {
-        $("#deleteformCat").ajaxForm({
+    $("body").on("click", ".submit_Delete_Categoriy", function() {
+        $("#delete_categories_Form").ajaxForm({
             success: function() {
                 $("#myModal9").modal("hide");
-                $("#categoriytable")
+                $("#categoriy_table")
                     .DataTable()
                     .ajax.reload();
             }

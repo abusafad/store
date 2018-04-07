@@ -87,7 +87,7 @@ h1 {
     margin-bottom: 10px;
 }
 
-.js-example-basic-multiple {
+.category_select {
     width: 297px;
 }
 
@@ -100,4 +100,12 @@ h1 {
     margin-right: 5px;
     margin-top: 5px;
     padding: 0 5px;
+}
+
+.input-group-addon:last-child {
+    width: 10px;
+    position: relative;
+    top: -44px;
+    left: 179px;
+    height: 33px;
 }

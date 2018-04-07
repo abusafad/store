@@ -31,7 +31,7 @@ foreach ($showlist as $rr) {?>
 </select >  
 
 <label > category </label >   </br>
-<select class = "js-example-basic-multiple" name = "category[]" id = "category" title = "Choose of the categories ..." multiple="multiple" >  <?php
+<select class = "category_select" name = "category[]" id = "category" title = "Choose of the categories ..." multiple="multiple" >  <?php
 $Categories = new Application_Model_DbTable_Categories(); 
 $showlist = $Categories -> fetchAll(); 
 foreach ($showlist as $rr1) {?>  
@@ -63,12 +63,17 @@ foreach ($showlist as $rr1) {?>
   <div class="row">
     <div class="form-group col-md-5">
       <label > start Date </label > 
-    <input id="startDate" type="text" name="startDate" placeholder="startDate"  autocomplete="fales"/>
-
+    <input class="form-control" id="startDate_add" type="text" name="startDate" autocomplete="fales"/>
+               <span class="input-group-addon ">
+                        <span class="glyphicon glyphicon-calendar "></span>
+                    </span>
    </div>
    <div class="form-group col-md-5">
       <label > end Date </label >  
-        <input id="endDate" type="text" name="endDate" placeholder="endDate" autocomplete="fales" />
+        <input class="form-control" id="endDate_add" type="text" name="endDate"   />
+         <span class="input-group-addon ">
+                        <span class="glyphicon glyphicon-calendar "></span>
+                    </span>
    </div>
 </div>
 

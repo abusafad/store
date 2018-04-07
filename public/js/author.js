@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $("#authortable").DataTable({
+    $("#author_table").DataTable({
         ajax: "/author/authorjson",
         retrieve: true,
         paging: true,
@@ -22,56 +22,56 @@ $(document).ready(function() {
                     return (
                         "<button type='button' authorid='" +
                         row.id +
-                        "' id='editauthor' class='btn btn-success btn-md editauthor' data-toggle='modal'  data-target='#myModal5'>  edit </button>                                  <button type='button' authorid='" +
+                        "' id='editauthor' class='btn btn-success btn-md edit_author' data-toggle='modal'  data-target='#myModal5'>  edit </button>                                  <button type='button' authorid='" +
                         row.id +
-                        "' id='deleteauthor' class='btn btn-danger btn-md deleteauthor' data-toggle='modal'  data-target='#myModal6'>  delete </button>"
+                        "' id='deleteauthor' class='btn btn-danger btn-md delete_author' data-toggle='modal'  data-target='#myModal6'>  delete </button>"
                     );
                 }
             }
         ]
     });
 
-    $("body").on("click", ".addauthor", function() {
+    $("body").on("click", ".add_author", function() {
         $(".modal-body").load("/author/add");
     });
 
-    $("body").on("click", ".editauthor", function() {
+    $("body").on("click", ".edit_author", function() {
         var authorid = $(this).attr("authorid");
         $(".modal-body").load("/author/edit?id=" + authorid);
     });
 
-    $("body").on("click", ".deleteauthor", function() {
+    $("body").on("click", ".delete_author", function() {
         var authorid = $(this).attr("authorid");
         $(".modal-body").load("/author/delete/id/" + authorid);
     });
 
-    $("body").on("click", ".sendauthor", function() {
-        $("#author").ajaxForm({
+    $("body").on("click", ".submit_Add_Author", function() {
+        $("#add_Author_Form").ajaxForm({
             success: function() {
                 $("#myModal4").modal("hide");
-                $("#authortable")
+                $("#author_table")
                     .DataTable()
                     .ajax.reload();
             }
         });
     });
 
-    $("body").on("click", ".editauthor1", function() {
-        $("#editauthorform").ajaxForm({
+    $("body").on("click", ".submit_Edit_Author", function() {
+        $("#edit_Author_Form").ajaxForm({
             success: function() {
                 $("#myModal5").modal("hide");
-                $("#authortable")
+                $("#author_table")
                     .DataTable()
                     .ajax.reload();
             }
         });
     });
 
-    $("body").on("click", ".deletesubmit1", function() {
-        $("#deleteform1").ajaxForm({
+    $("body").on("click", ".submit_Delete_Author", function() {
+        $("#delete_Author_Form").ajaxForm({
             success: function() {
                 $("#myModal6").modal("hide");
-                $("#authortable")
+                $("#author_table")
                     .DataTable()
                     .ajax.reload();
             }

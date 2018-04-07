@@ -22,7 +22,7 @@ $this->headTitle($this->title);
 
 	 <div class="contaner">
 		<div class="table-responsive">
- <table id="authortable" class="main-table mange-mempers text-center table table-bordered table1" cellspacing="0" width="100%">
+ <table id="author_table" class="main-table mange-mempers text-center table table-bordered table1" cellspacing="0" width="100%">
 	  <thead>
           <tr>
 
@@ -38,7 +38,7 @@ $this->headTitle($this->title);
 
 
 
-			<button type="button" class="btn btn-info btn-lg addauthor" data-toggle="modal" data-target="#myModal4">
+			<button type="button" class="btn btn-info btn-lg add_author" data-toggle="modal" data-target="#myModal4">
 add author
 </button>
 
@@ -47,7 +47,7 @@ add author
 <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-<form class="group" method="POST" id="author" action="<?php echo $this->url(array('action' => 'add')); ?>">
+<form class="group" method="POST" id="add_Author_Form" action="<?php echo $this->url(array('action' => 'add')); ?>">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">add author</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -58,7 +58,7 @@ add author
        </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary sendauthor">add</button>
+        <button type="submit" class="btn btn-primary submit_Add_Author">add</button>
       </div>
     </div>
     </form>
@@ -76,7 +76,7 @@ add author
 <div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-<form class="group formeditaa" id="editauthorform" method="POST" action="<?php echo $this->url(array('action' => 'edit')); ?>">
+<form class="group formeditaa" id="edit_Author_Form" method="POST" action="<?php echo $this->url(array('action' => 'edit')); ?>">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">edit author</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -87,7 +87,7 @@ add author
        </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary editauthor1">update</button>
+        <button type="submit" class="btn btn-primary submit_Edit_Author">update</button>
       </div>
     </div>
     </form>
@@ -104,7 +104,7 @@ add author
 		<div class="modal fade" id="myModal6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-<form id='deleteform1' action="<?php echo $this->url(array('action' => 'delete')); ?>" method="post">
+<form id='delete_Author_Form' action="<?php echo $this->url(array('action' => 'delete')); ?>" method="post">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">delete author</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -115,7 +115,7 @@ add author
        </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary deletesubmit1">delete</button>
+        <button type="submit" class="btn btn-primary submit_Delete_Author">delete</button>
       </div>
     </div>
     </form>
