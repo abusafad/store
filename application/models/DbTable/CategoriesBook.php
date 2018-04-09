@@ -24,11 +24,7 @@ public function addCategoriesBook($idbookcat, $idcategories , $count)
 		$data = array ('idbook'=>$idbookcat ,'idcategories'=>$idcategories[$i]);
 		$this->insert($data);
 		}
-//	$data = array(
-//	'idbook'  => $idbookcat,
-//	'idcategories' => $idcategories,
-//	);
-//	$this->insert($data);
+
 }
 	
 	

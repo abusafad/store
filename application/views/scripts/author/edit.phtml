@@ -3,11 +3,7 @@ $this->title = "Edit book";
 $this->headTitle($this->title);
 ?>
 
-<html>
-<body>
-<head>
-<?php echo $this->headScript()->prependFile($this->baseUrl().'/js/author.js'); ?>
-</head>
+
 
 <?php
 $authorid = isset($_GET['id']) && is_numeric($_GET['id']) ? intval($_GET['id']) : 0;
@@ -40,5 +36,3 @@ foreach ($authors as $author) {
 }
 ?>
 
-</body>
-</html>

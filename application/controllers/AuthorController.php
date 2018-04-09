@@ -12,15 +12,17 @@ $this -> view -> author = $author -> fetchAll();
 }
 
 public function addAction() {
+
+
 $this -> _helper -> layout() -> disableLayout(); 
 
 if ($this -> getRequest() -> isPost()) {
 $formData = $this -> getRequest() -> getPost(); 
 
-$name = $this -> getRequest() -> getPost('name'); 
-$email = $this -> getRequest() -> getPost('email'); 
-$phone = $this -> getRequest() -> getPost('phone'); 
-$address = $this -> getRequest() -> getPost('address'); 
+$name       = $this -> getRequest() -> getPost('name'); 
+$email      = $this -> getRequest() -> getPost('email'); 
+$phone      = $this -> getRequest() -> getPost('phone'); 
+$address    = $this -> getRequest() -> getPost('address'); 
 
 $authors = new Application_Model_DbTable_Authors(); 
 $authors -> addAuthor($name, $email, $phone, $address); 
@@ -34,11 +36,11 @@ $this -> _helper -> layout() -> disableLayout();
 if ($this -> getRequest() -> isPost()) {
 $formData = $this -> getRequest() -> getPost(); 
 
-$id = (int)$this -> getRequest() -> getPost('id'); 
-$name = $this -> getRequest() -> getPost('name'); 
-$email = $this -> getRequest() -> getPost('email'); 
-$phone = $this -> getRequest() -> getPost('phone'); 
-$address = $this -> getRequest() -> getPost('address'); 
+$id         = (int)$this -> getRequest() -> getPost('id'); 
+$name       = $this -> getRequest() -> getPost('name'); 
+$email      = $this -> getRequest() -> getPost('email'); 
+$phone      = $this -> getRequest() -> getPost('phone'); 
+$address    = $this -> getRequest() -> getPost('address'); 
 
 $authors = new Application_Model_DbTable_Authors(); 
 $authors -> updateAuthor($id, $name, $email, $phone, $address); 
@@ -51,8 +53,8 @@ public function deleteAction() {
 $this -> _helper -> layout() -> disableLayout(); 
 if ($this -> getRequest() -> isPost()) {
 
-$del = $this -> getRequest() -> getPost('del'); 
-$id = $this -> getRequest() -> getPost('id'); 
+$del    = $this -> getRequest() -> getPost('del'); 
+$id     = $this -> getRequest() -> getPost('id'); 
 
 $authors = new Application_Model_DbTable_Authors(); 
 $authors -> deleteAuthor($id); 
@@ -66,6 +68,8 @@ $this -> view -> author = $authors -> getAuthor($id);
 }
 
 public function authorjsonAction() {
+
+    
 $this -> _helper -> layout() -> disableLayout(); 
 
 $this -> _helper -> viewRenderer -> setNoRender(true); 

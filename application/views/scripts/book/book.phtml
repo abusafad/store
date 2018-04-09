@@ -65,7 +65,7 @@ add book
  <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-<form class ="group" method = "POST" id="add_Book_Form" action="<?php echo $this->url(array('action' => 'add')); ?>" >  
+<form class ="group" method="POST"  name="add_Book_Form"  id="add_Book_Form" action="<?php echo $this->url(array('action' => 'add')); ?>" >  
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">add book</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -74,13 +74,16 @@ add book
       </div>
       <div class="modal-body">
      
+
+     
        </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-primary submit_Add_book">add</button>
       </div>
+		</form>
     </div>
-    </form>
+   
   </div>
 </div>
 
@@ -90,7 +93,7 @@ add book
 			<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-<form class ="group" method="POST"  name="bookformedit22"  id="edit_Book_Form" action="<?php echo $this->url(array('action' => 'edit')); ?>" >  
+<form class ="group" method="POST"  name="edit_Book_Form"  id="edit_Book_Form" action="<?php echo $this->url(array('action' => 'edit')); ?>" >  
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">edit book</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -103,8 +106,9 @@ add book
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-primary submit_Edit_book">edit</button>
       </div>
+        </form>
     </div>
-    </form>
+  
   </div>
 </div>
 
@@ -127,10 +131,8 @@ add book
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-primary submit_Delete_book">delete</button>
       </div>
+      </form>
     </div>
-    </form>
+    
   </div>
 </div>
-
-</body>
-</html>

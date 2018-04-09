@@ -1,6 +1,9 @@
 $(document).ready(function() {
     $("#categoriy_table").DataTable({
-        ajax: "/categoriy/categoryjson",
+        ajax: {
+            url: "/categoriy/categoryjson",
+            type: "POST"
+        },
         retrieve: true,
         paging: true,
         bProcessing: true,

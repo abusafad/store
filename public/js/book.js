@@ -1,8 +1,111 @@
 $(document).ready(function() {
 
-    $("#book_table").DataTable({
-        ajax: "/book/bookjson",
 
+
+
+    $("body").on("click", ".submit_Add_book", function() {
+        $("#add_Book_Form").ajaxForm({
+            success: function() {
+                $("#myModal1").modal("hide");
+                $("#book_table")
+                    .DataTable()
+                    .ajax.reload();
+            }
+        });
+    });
+
+
+
+    $("body").on("click", ".edit_book", function() {
+        setInterval(function() {
+            $("#edit_Book_Form").validate({
+                rules: {
+                    name: {
+                        required: true,
+                        minlength: 4
+                    },
+
+                    descrabtion: {
+                        required: true
+                    },
+                    authorid: {
+                        required: true
+                    },
+
+                    priceJod: {
+                        require_from_group: [1, ".price-group"]
+                    },
+                    priceUsd: {
+                        require_from_group: [1, ".price-group"]
+                    },
+                    priceEru: {
+                        require_from_group: [1, ".price-group"]
+                    },
+                    startDate: {
+                        required: function(element) {
+                            return $(".endDate_edit").val().length > 0;
+                        }
+                    },
+                    endDate: {
+                        required: function(element) {
+                            return $(".startDate_edit").val().length > 0;
+                        }
+                    }
+                }
+            });
+        }, 100);
+    });
+
+
+    $("body").on("click", ".add_book", function() {
+
+        setInterval(function() {
+
+            $("#add_Book_Form").validate({
+                rules: {
+                    name: {
+                        required: true,
+                        minlength: 4
+                    },
+
+                    descrabtion: {
+                        required: true
+                    },
+                    authorid: {
+                        required: true
+                    },
+
+                    priceJod: {
+                        require_from_group: [1, ".price-group"]
+                    },
+                    priceUsd: {
+                        require_from_group: [1, ".price-group"]
+                    },
+                    priceEru: {
+                        require_from_group: [1, ".price-group"]
+                    },
+                    startDate: {
+                        required: function(element) {
+                            return $("#endDate_add").val().length > 0;
+                        }
+                    },
+                    endDate: {
+                        required: function(element) {
+                            return $("#startDate_add").val().length > 0;
+                        }
+                    }
+                }
+            });
+        }, 100);
+
+
+    });
+
+    $("#book_table").DataTable({
+        ajax: {
+            url: "/book/bookjson",
+            type: "POST"
+        },
         retrieve: true,
         paging: true,
         bProcessing: true,
@@ -39,7 +142,8 @@ $(document).ready(function() {
                     for (var i = 0; i < nameOfCat.length; i++) {
                         return (
                             "<span class='catNameSpan'>" +
-                            nameOfCat.join(" </span> " + "<span class='catNameSpan'>")
+                            nameOfCat.join(" </span> " + "<span class='catNameSpan'>") +
+                            "</span>"
                         );
                     }
                 }
@@ -90,16 +194,7 @@ $(document).ready(function() {
 
 
 
-    $("body").on("click", ".submit_Add_book", function() {
-        $("#add_Book_Form").ajaxForm({
-            success: function() {
-                $("#myModal1").modal("hide");
-                $("#book_table")
-                    .DataTable()
-                    .ajax.reload();
-            }
-        });
-    });
+
 
     $("body").on("click", ".submit_Edit_book", function() {
         $("#edit_Book_Form").ajaxForm({
@@ -125,104 +220,61 @@ $(document).ready(function() {
 
 
 
+   
+
+
     $("body").on("click", ".add_book", function() {
-        setInterval(function() {
-            $("#add_Book_Form").validate({
-                rules: {
-                    name: {
-                        required: true,
-                        minlength: 4
-                    },
+        setTimeout(function() {
+            $("#category_select").select2();
 
-                    descrabtion: {
-                        required: true
-                    },
+            $("#startDate_add").datepicker({
+                minDate: 0,
+                numberOfMonths: 1,
+                onSelect: function(selected) {
+                    $("#endDate_add").datepicker(
+                        "option",
+                        "minDate",
+                        selected
+                    );
+                }
+            });
 
-                    priceJod: {
-                        require_from_group: [1, ".price-group"]
-                    },
-                    priceUsd: {
-                        require_from_group: [1, ".price-group"]
-                    },
-                    priceEru: {
-                        require_from_group: [1, ".price-group"]
-                    },
-                    startDate: {
-                        required: function(element) {
-                            return $("#endDate").val().length > 0;
-                        }
-                    },
-                    endDate: {
-                        required: function(element) {
-                            return $("#startDate").val().length > 0;
-                        }
-                    }
+            $("#endDate_add").datepicker({
+                minDate: 0,
+                numberOfMonths: 1,
+                onSelect: function(selected) {
+                    $("#startDate_add").datepicker(
+                        "option",
+                        "maxDate",
+                        selected
+                    );
                 }
             });
         }, 100);
     });
+
 
     $("body").on("click", ".edit_book", function() {
-        setInterval(function() {
-            $("#edit_Book_Form").validate({
-                rules: {
-                    name: {
-                        required: true,
-                        minlength: 4
-                    },
+        setTimeout(function() {
 
-                    descrabtion: {
-                        required: true
-                    },
+            $(".category_select").select2();
 
-                    priceJod: {
-                        require_from_group: [1, ".price-group"]
-                    },
-                    priceUsd: {
-                        require_from_group: [1, ".price-group"]
-                    },
-                    priceEru: {
-                        require_from_group: [1, ".price-group"]
-                    }
+            $(".startDate_edit").datepicker({
+                minDate: 0,
+                numberOfMonths: 1,
+                onSelect: function(selected) {
+                    $(".endDate_edit").datepicker("option", "minDate", selected);
                 }
             });
+
+            $(".endDate_edit").datepicker({
+                minDate: 0,
+                numberOfMonths: 1,
+                onSelect: function(selected) {
+                    $(".startDate_edit").datepicker("option", "maxDate", selected);
+                }
+            });
+
         }, 100);
-    });
-
-
-
-
-    $(".category_select").select2();
-
-    $("#startDate_add").datepicker({
-        minDate: 0,
-        numberOfMonths: 1,
-        onSelect: function(selected) {
-            $("#endDate_add").datepicker("option", "minDate", selected);
-        }
-    });
-
-    $("#endDate_add").datepicker({
-        minDate: 0,
-        numberOfMonths: 1,
-        onSelect: function(selected) {
-            $("#startDate_add").datepicker("option", "maxDate", selected);
-        }
-    });
-
-    $(".startDate_edit").datepicker({
-        minDate: 0,
-        numberOfMonths: 1,
-        onSelect: function(selected) {
-            $(".endDate_edit").datepicker("option", "minDate", selected);
-        }
-    });
-
-    $(".endDate_edit").datepicker({
-        minDate: 0,
-        numberOfMonths: 1,
-        onSelect: function(selected) {
-            $(".startDate_edit").datepicker("option", "maxDate", selected);
-        }
     });
 });

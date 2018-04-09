@@ -1,6 +1,9 @@
 $(document).ready(function() {
     $("#author_table").DataTable({
-        ajax: "/author/authorjson",
+        ajax: {
+            url: "/author/authorjson",
+            type: "POST"
+        },
         retrieve: true,
         paging: true,
         bProcessing: true,

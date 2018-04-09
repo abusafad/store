@@ -1,84 +1,78 @@
 <?php
-$this -> title = "Add new book"; 
-$this -> headTitle($this -> title); 
-?>
+   $this->title = "Add new book";
+   $this->headTitle($this->title);
+   ?>
 
-
-<html>
-<body>
-<head>
-<?php echo $this->headScript()->prependFile($this->baseUrl().'/js/book.js'); ?>
-</head>
-  
-
-
-<input type = "hidden"name = "id"id = "id"value = ""/>  
-
-<label > Name </label >  
-<input class = "form-control" type = "text"   name = "name" id = "name" placeholder = "name"/>  
-
-<label > Author </label >  
-<select class = "form-control"name = "authorid"id = "author" required >  
-<option value = "0" >  .  .  .  </option >  
-<?php
-$author = new Application_Model_DbTable_Authors; 
-$showlist = $author -> fetchAll(); 
-
-foreach ($showlist as $rr) {?>  
-<option value = '<?=$rr['id']?>' ><?= $rr['name']?>  </option >  
-<?php
-}?>  
-</select >  
-
-<label > category </label >   </br>
-<select class = "category_select" name = "category[]" id = "category" title = "Choose of the categories ..." multiple="multiple" >  <?php
-$Categories = new Application_Model_DbTable_Categories(); 
-$showlist = $Categories -> fetchAll(); 
-foreach ($showlist as $rr1) {?>  
-<option value = '<?=$rr1['id']?>' ><?= $rr1['name']?>  </option >  <?php
-}?>  
-</select> </br> </br>
-
-<label> descrabtion </label >  
-<input class = "form-control"type = "text"name = "descrabtion"placeholder = "descrabtion"required/>  
+<input type = "hidden"name = "id"id = "id"value = ""/>
+<div class="row">
+   <div class="form-group col-md-12 ">
+      <label > Name </label >
+      <input class = "form-control" type = "text"   name = "name" id = "name" placeholder = "name"/>
+   </div>
+</div>
 
 <div class="row">
-    <div class="form-group col-md-4">
-<label > Price in JOD </label >  
-<input class = "form-control price-group "  type = "text" name = "priceJod" placeholder = "priceJod" />    
+   <div class="form-group col-md-12 ">
+      <label > Author </label >
+      <select class = "form-control" name = "authorid"  id = "author" required >
+         <option value=""> .  .  .  </option>
+         <?php
+            $author = new Application_Model_DbTable_Authors;
+            $showlist = $author->fetchAll();
+            
+            foreach ($showlist as $rr) {?>
+         <option value = '<?=$rr['id']?>' ><?=$rr['name']?>  </option >
+         <?php
+            }?>
+      </select >
+   </div>
 </div>
-    <div class="form-group col-md-4">
-<label > Price in USD </label >  
-<input class = "form-control price-group" type = "text" name = "priceUsd" placeholder = "priceUsd" />      
+
+<div class="row">
+   <div class="form-group col-md-12 ">
+      <label > category </label >   </br>
+      <select class = "category_select" name = "category[]" id = "category_select" title = "Choose of the categories ..." multiple="multiple" >
+         <option value=""> .  .  .  </option>
+         <?php
+            $Categories = new Application_Model_DbTable_Categories();
+            $showlist = $Categories->fetchAll();
+            foreach ($showlist as $rr1) {?>
+         <option value = '<?=$rr1['id']?>' ><?=$rr1['name']?>  </option >
+         <?php
+            }?>
+      </select>
+   </div>
 </div>
-    <div class="form-group col-md-4">
-<label > Price in ERU </label >  
-<input class = "form-control price-group" type = "text" name = "priceEru" placeholder = "priceEru" /> 
-  </div>
 
-  </div>
+<div class="row">
+   <div class="form-group col-md-12 ">
+      <label> descrabtion </label >
+      <input class = "form-control"type = "text"name = "descrabtion"placeholder = "descrabtion"required/>
+   </div>
+</div>
 
+<div class="row">
+   <div class="form-group col-md-4">
+      <label > Price in JOD </label >
+      <input class = "form-control price-group "  type = "text" name = "priceJod" placeholder = "priceJod" />
+   </div>
+   <div class="form-group col-md-4">
+      <label > Price in USD </label >
+      <input class = "form-control price-group" type = "text" name = "priceUsd" placeholder = "priceUsd" />
+   </div>
+   <div class="form-group col-md-4">
+      <label > Price in ERU </label >
+      <input class = "form-control price-group" type = "text" name = "priceEru" placeholder = "priceEru" />
+   </div>
+</div>
 
-
-  <div class="row">
-    <div class="form-group col-md-5">
-      <label > start Date </label > 
-    <input class="form-control" id="startDate_add" type="text" name="startDate" autocomplete="fales"/>
-               <span class="input-group-addon ">
-                        <span class="glyphicon glyphicon-calendar "></span>
-                    </span>
+<div class="row">
+   <div class="form-group col-md-5">
+      <label > start Date </label >
+      <input class="form-control" id="startDate_add" type="text" name="startDate" autocomplete="fales"/>
    </div>
    <div class="form-group col-md-5">
-      <label > end Date </label >  
-        <input class="form-control" id="endDate_add" type="text" name="endDate"   />
-         <span class="input-group-addon ">
-                        <span class="glyphicon glyphicon-calendar "></span>
-                    </span>
+      <label > end Date </label >
+      <input class="form-control" id="endDate_add" type="text" name="endDate"/>
    </div>
 </div>
-
-
-
-
-
-

@@ -1,17 +1,14 @@
 <?php
 $this -> title = "Add new book"; 
 $this -> headTitle($this -> title);
-
 ?>
-<html>
-<body>
-<head>
-<?php echo $this->headScript()->prependFile($this->baseUrl().'/js/book.js'); ?>
-</head>
+
+
+
+
 <?php
 
 $booksid = isset($_GET['id']) && is_numeric($_GET['id'])?intval($_GET['id']):0; 
-
 $books = new Application_Model_DbTable_Books(); 
 $book = $books -> fetchAll($books -> select()-> where('id = ?', $booksid)); 
 foreach ($book as $book1) 
@@ -19,24 +16,33 @@ foreach ($book as $book1)
 
  <input type = "hidden" name = "id" id = "idbook" value = "<?=$book1['id']?>"/>  
  
+ <div class="row">
+   <div class="form-group col-md-12 ">
  <label > Name </label >  
  <input class = "form-control namebook" id = "namebook" type = "text" name = "name" value = "<?=$book1['name']?>"
  placeholder = "name" required />
+</div>
+</div>
 
+<div class="row">
+   <div class="form-group col-md-12 ">
  <label> Author </label >  
  <select class = "form-control"name = "author"id = "authorbook"required >  
- <option value = "0" >  .  .  .  </option >  <?php
+ <option value = "" >  .  .  .  </option >  <?php
 $author = new Application_Model_DbTable_Authors; 
 $showlist = $author -> fetchAll(); 
 
 foreach ($showlist as $authors) {?>  <option value = '<?=$authors['id']?>' <?php
-if ($authors['id'] == $book1['authorid']) {
-echo 'selected'; 
-}?>  >  <?= $authors['name']?>  </option >  <?php
-}?>  </select >  
+if ($authors['id'] == $book1['authorid']) {echo 'selected'; }?> >  
+<?= $authors['name']?>  </option >  <?php } ?>  
+</select >  
+</div>
+</div>
 
+<div class="row">
+   <div class="form-group col-md-12 ">
 <label > category </label >   </br>
-<select class = "category_select" name = "category[]"id = "category"title = "Choose of the categories ..."multiple >  <?php
+<select class = "category_select" name = "category[]" id = "category_select"title = "Choose of the categories ..."multiple >  <?php
 $Categories = new Application_Model_DbTable_Categories(); 
 $showlist = $Categories -> fetchAll(); 
 foreach ($showlist as $categories) {?>  
@@ -50,10 +56,17 @@ if ($categories['id'] == $categoriesbook[$i]['idcategories'] && $categoriesbook[
 echo 'selected'; 
 }
 }?>  ><?= $categories['name']?>  </option >  <?php
-}?>  </select >   </br>
+}?>  </select > 
+</div>
+</div>
 
+<div class="row">
+   <div class="form-group col-md-12 ">
 <label> descrabtion </label >  
 <input class = "form-control decbook" id = "decbook" type = "text" name = "descrabtion" value = "<?=$book1['descrabtion']?>"placeholder = "descrabtion"required/>  
+</div>
+</div>
+
 
 <div class="row">
     <div class="form-group col-md-3">
@@ -75,17 +88,13 @@ echo 'selected';
   <div class="form-group col-md-5">
       <label > start Date </label >  
         <input class="form-control startDate_edit"  type="text" name="startDate" value = "<?=$book1['startDate']?>"    autocomplete="fales" />
-  <span class="input-group-addon ">
-                        <span class="glyphicon glyphicon-calendar "></span>
-                    </span>
+  
   </div>
 
   <div class="form-group col-md-5">
       <label > end Date </label >  
         <input class="form-control endDate_edit"  type="text" name="endDate" value = "<?=$book1['endDate']?>" autocomplete="fales" />
-  <span class="input-group-addon ">
-                        <span class="glyphicon glyphicon-calendar "></span>
-                    </span>
+  
       </div>
 
 </div>
@@ -96,8 +105,6 @@ echo 'selected';
 
 
 
-</body>
-</html>
 
 
 
